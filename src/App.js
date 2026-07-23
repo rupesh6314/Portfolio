@@ -80,7 +80,7 @@ export default function App() {
       color: "neon-orange",
       icon: <Database size={24} />,
       githubUrl: "https://github.com/rupesh6314/velora",
-      liveUrl: "https://car-rental-fronotend.vercel.app/"
+      liveUrl: "https://car-rental-velora.vercel.app/"
     },
     {
       title: "College Discovery Platform",
