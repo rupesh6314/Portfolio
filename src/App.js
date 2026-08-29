@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Database, Cpu, Code, Play, Layout, Server, ExternalLink, Mail, Phone, MapPin, GraduationCap, ChevronDown, Shield, ArrowRight } from 'lucide-react';
+import { Terminal, Database, Cpu, Code, Play, Layout, Server, ExternalLink, Mail, Phone, MapPin, GraduationCap, ChevronDown, Shield, ArrowRight, Eye, Download, FileText } from 'lucide-react';
 
 const GithubSVG = ({ size = 24, className = "" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -154,11 +154,19 @@ export default function App() {
             <span className="text-gray-100">RUPESH</span>
             <span className="text-neon-orange">/&gt;</span>
           </div>
-          <div className="flex gap-6 font-mono text-sm text-gray-400">
+          <div className="flex flex-wrap items-center gap-4 md:gap-6 font-mono text-sm text-gray-400">
             <a href="#about" className="hover:text-neon-blue transition-colors">01. ABOUT</a>
             <a href="#skills" className="hover:text-neon-emerald transition-colors">02. SKILLS</a>
             <a href="#projects" className="hover:text-neon-orange transition-colors">03. WORK</a>
             <a href="#contact" className="hover:text-rust-500 transition-colors">04. CONTACT</a>
+            <a 
+              href={`${process.env.PUBLIC_URL}/resume.pdf`} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-1.5 text-xs text-neon-orange border border-neon-orange/40 hover:border-neon-orange hover:bg-neon-orange/10 px-3 py-1 hover:shadow-neon-glow transition-all"
+            >
+              <FileText size={13} /> 05. RESUME
+            </a>
           </div>
         </motion.nav>
 
@@ -168,37 +176,135 @@ export default function App() {
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="max-w-4xl"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
           >
-            <motion.div variants={fadeInUp} className="flex items-center gap-4 mb-6">
-              <div className="h-[1px] w-12 bg-neon-orange"></div>
-              <span className="font-mono text-neon-orange uppercase tracking-widest text-sm">System Online // Identity Verified</span>
-            </motion.div>
-            
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-8xl font-black font-mono tracking-tighter leading-none mb-6 text-gray-100">
-              BUILDING <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rust-500 via-neon-orange to-rust-400">
-                SCALABLE
-              </span><br />
-              ARCHITECTURES.
-            </motion.h1>
-            
-            <motion.div variants={fadeInUp} className="text-xl md:text-3xl text-gray-400 font-mono mb-8 h-12">
-              <TypewriterText text="> Full Stack Developer & AI Enthusiast_" />
-            </motion.div>
+            {/* Left Column: Hero Content */}
+            <div className="lg:col-span-7">
+              <motion.div variants={fadeInUp} className="flex items-center gap-4 mb-6">
+                <div className="h-[1px] w-12 bg-neon-orange"></div>
+                <span className="font-mono text-neon-orange uppercase tracking-widest text-sm">System Online // Identity Verified</span>
+              </motion.div>
+              
+              <motion.h1 variants={fadeInUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-mono tracking-tighter leading-none mb-6 text-gray-100">
+                BUILDING <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rust-500 via-neon-orange to-rust-400">
+                  SCALABLE
+                </span><br />
+                ARCHITECTURES.
+              </motion.h1>
+              
+              <motion.div variants={fadeInUp} className="text-lg md:text-2xl text-gray-400 font-mono mb-8 min-h-[2rem]">
+                <TypewriterText text="> Full Stack Developer & AI Enthusiast_" />
+              </motion.div>
 
-            <motion.p variants={fadeInUp} className="text-lg text-gray-400 max-w-2xl leading-relaxed mb-12 border-l-4 border-industrial-700 pl-6">
-              Engineering the intersection of robust backend systems, modern frontend interfaces, and intelligent AI architectures. Currently building the future at VIT-AP University.
-            </motion.p>
+              <motion.p variants={fadeInUp} className="text-base md:text-lg text-gray-400 max-w-2xl leading-relaxed mb-10 border-l-4 border-industrial-700 pl-6">
+                Engineering the intersection of robust backend systems, modern frontend interfaces, and intelligent AI architectures. Currently building the future at VIT-AP University.
+              </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex gap-6 items-center">
-              <a href="#projects" className="group relative px-8 py-4 bg-industrial-800 border border-rust-500 text-rust-500 font-mono font-bold uppercase tracking-wider overflow-hidden hover:text-white transition-colors">
-                <div className="absolute inset-0 bg-rust-500 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
-                <span className="relative z-10 flex items-center gap-2">Initiate Sequence <ArrowRight size={18} /></span>
-              </a>
-              <a href="https://github.com/rupesh6314" target="_blank" rel="noopener noreferrer" className="p-4 border border-industrial-700 text-gray-400 hover:text-neon-blue hover:border-neon-blue hover:shadow-blue-glow transition-all rounded-sm">
-                <GithubSVG size={24} />
-              </a>
+              {/* Action Buttons: Sequences & Resume Controls */}
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 items-center">
+                <a href="#projects" className="group relative px-7 py-4 bg-industrial-800 border border-rust-500 text-rust-500 font-mono font-bold uppercase tracking-wider overflow-hidden hover:text-white transition-colors">
+                  <div className="absolute inset-0 bg-rust-500 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
+                  <span className="relative z-10 flex items-center gap-2">Initiate Sequence <ArrowRight size={18} /></span>
+                </a>
+
+                {/* View Resume Button */}
+                <a 
+                  href={`${process.env.PUBLIC_URL}/resume.pdf`} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="px-6 py-4 bg-industrial-900/90 border border-neon-blue text-neon-blue font-mono font-bold uppercase text-sm tracking-wider hover:bg-neon-blue hover:text-industrial-900 hover:shadow-blue-glow transition-all flex items-center gap-2"
+                >
+                  <Eye size={18} /> View Resume
+                </a>
+
+                {/* Download Resume Button */}
+                <a 
+                  href={`${process.env.PUBLIC_URL}/resume.pdf`} 
+                  download="Madhuvarsu_Rupesh_Resume.pdf"
+                  className="px-6 py-4 bg-industrial-900/90 border border-neon-emerald text-neon-emerald font-mono font-bold uppercase text-sm tracking-wider hover:bg-neon-emerald hover:text-industrial-900 hover:shadow-emerald-glow transition-all flex items-center gap-2"
+                >
+                  <Download size={18} /> Download CV
+                </a>
+
+                {/* Github Button */}
+                <a 
+                  href="https://github.com/rupesh6314" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-4 border border-industrial-700 text-gray-400 hover:text-neon-blue hover:border-neon-blue hover:shadow-blue-glow transition-all rounded-sm"
+                  title="GitHub Profile"
+                >
+                  <GithubSVG size={22} />
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Square Shape Photo Container */}
+            <motion.div variants={fadeInUp} className="lg:col-span-5 flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-square group">
+                
+                {/* Tech Bracket Corners */}
+                <div className="absolute -top-2.5 -left-2.5 w-6 h-6 border-t-2 border-l-2 border-neon-orange z-20 pointer-events-none"></div>
+                <div className="absolute -top-2.5 -right-2.5 w-6 h-6 border-t-2 border-r-2 border-neon-orange z-20 pointer-events-none"></div>
+                <div className="absolute -bottom-2.5 -left-2.5 w-6 h-6 border-b-2 border-l-2 border-neon-orange z-20 pointer-events-none"></div>
+                <div className="absolute -bottom-2.5 -right-2.5 w-6 h-6 border-b-2 border-r-2 border-neon-orange z-20 pointer-events-none"></div>
+
+                {/* Outer Cyber Box with Glow */}
+                <div className="w-full h-full bg-industrial-800 border-2 border-industrial-700 relative overflow-hidden transition-all duration-500 group-hover:border-rust-500 group-hover:shadow-[0_0_30px_rgba(183,65,14,0.35)] flex flex-col">
+                  
+                  {/* Top HUD Status Bar */}
+                  <div className="bg-industrial-900/90 backdrop-blur-sm border-b border-industrial-700 px-4 py-2 flex items-center justify-between z-20 font-mono text-xs">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-neon-emerald animate-pulse"></span>
+                      <span className="text-gray-300 font-bold tracking-wider text-[11px] sm:text-xs">OPERATOR // RUPESH</span>
+                    </div>
+                    <span className="text-neon-orange tracking-widest uppercase text-[10px]">BIOMETRIC OK</span>
+                  </div>
+
+                  {/* Photo Display */}
+                  <div className="relative flex-1 w-full overflow-hidden bg-industrial-900">
+                    <img 
+                      src={`${process.env.PUBLIC_URL}/rupesh.jpg`} 
+                      alt="Madhuvarsu Rupesh Chandra Bharadwaj" 
+                      className="w-full h-full object-cover object-top filter contrast-[1.08] group-hover:contrast-100 transition-all duration-500 group-hover:scale-105"
+                    />
+
+                    {/* Industrial Gradient & Scanlines */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-industrial-900 via-transparent to-transparent opacity-60 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-grid-pattern bg-[length:24px_24px] opacity-10 pointer-events-none"></div>
+                  </div>
+
+                  {/* Bottom HUD Bar with Quick Resume Actions */}
+                  <div className="bg-industrial-900/95 backdrop-blur-sm border-t border-industrial-700 px-4 py-2.5 flex items-center justify-between z-20 font-mono text-xs">
+                    <span className="text-gray-400 text-[11px]">SYS.ID: VIT-AP // 8624</span>
+                    <div className="flex items-center gap-3">
+                      <a 
+                        href={`${process.env.PUBLIC_URL}/resume.pdf`} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-neon-blue hover:text-white flex items-center gap-1 transition-colors hover:underline"
+                        title="View Resume in new tab"
+                      >
+                        <Eye size={12} /> View
+                      </a>
+                      <span className="text-industrial-700">|</span>
+                      <a 
+                        href={`${process.env.PUBLIC_URL}/resume.pdf`} 
+                        download="Madhuvarsu_Rupesh_Resume.pdf"
+                        className="text-neon-emerald hover:text-white flex items-center gap-1 transition-colors hover:underline"
+                        title="Download Resume"
+                      >
+                        <Download size={12} /> Download
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Subtle Backdrop Ambient Glow */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-rust-500/20 to-neon-orange/20 rounded-sm blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 pointer-events-none"></div>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -260,6 +366,17 @@ export default function App() {
                 <div className="flex"><span className="text-rust-500 mr-4">root@rupesh:~$</span> <span className="text-gray-300">ping location</span></div>
                 <div className="text-neon-emerald pl-4 flex items-center gap-2">
                   <MapPin size={14} /> PONG: Hyderabad, India
+                </div>
+
+                <div className="flex"><span className="text-rust-500 mr-4">root@rupesh:~$</span> <span className="text-gray-300">cat credentials.json</span></div>
+                <div className="text-neon-orange pl-4 flex flex-wrap items-center gap-3">
+                  <span className="text-gray-400">[Resume Available]</span>
+                  <a href={`${process.env.PUBLIC_URL}/resume.pdf`} target="_blank" rel="noopener noreferrer" className="text-neon-blue hover:underline flex items-center gap-1">
+                    <Eye size={12} /> View
+                  </a>
+                  <a href={`${process.env.PUBLIC_URL}/resume.pdf`} download="Madhuvarsu_Rupesh_Resume.pdf" className="text-neon-emerald hover:underline flex items-center gap-1">
+                    <Download size={12} /> Download
+                  </a>
                 </div>
 
                 <div className="flex"><span className="text-rust-500 mr-4">root@rupesh:~$</span> <span className="text-gray-300 animate-pulse">_</span></div>
