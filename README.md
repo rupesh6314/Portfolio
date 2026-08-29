@@ -5,7 +5,7 @@ A highly interactive, single-page developer portfolio designed with a raw, indus
 ![Portfolio Preview](./public/preview.png) 
 
 ## ⚡ Live Demo
-**[Insert Vercel/Live Link Here]**
+**https://rupesh-portfolio-ruby.vercel.app/**
 
 ## 🛠️ Tech Stack & Arsenal
 This project is built from the ground up to be lightweight, incredibly fast, and visually striking.

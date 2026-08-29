@@ -80,7 +80,7 @@ export default function App() {
       color: "neon-orange",
       icon: <Database size={24} />,
       githubUrl: "https://github.com/rupesh6314/velora",
-      liveUrl: "https://car-rental-fronotend.vercel.app/"
+      liveUrl: "https://car-rental-velora.vercel.app/"
     },
     {
       title: "College Discovery Platform",
@@ -365,7 +365,7 @@ export default function App() {
                 
                 <div className="flex"><span className="text-rust-500 mr-4">root@rupesh:~$</span> <span className="text-gray-300">ping location</span></div>
                 <div className="text-neon-emerald pl-4 flex items-center gap-2">
-                  <MapPin size={14} /> PONG: Hyderabad, India
+                  <MapPin size={14} /> PONG: Markapur, India
                 </div>
 
                 <div className="flex"><span className="text-rust-500 mr-4">root@rupesh:~$</span> <span className="text-gray-300">cat credentials.json</span></div>
