@@ -147,14 +147,14 @@ export default function App() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex justify-between items-center mb-32 border-b border-industrial-700 pb-6"
+          className="flex justify-between items-start md:items-center mb-16 md:mb-32 border-b border-industrial-700 pb-6 gap-4"
         >
-          <div className="font-mono text-2xl font-bold tracking-tighter flex items-center gap-2">
+          <div className="font-mono text-xl sm:text-2xl font-bold tracking-tighter flex items-center gap-2 shrink-0 pt-0.5 md:pt-0">
             <span className="text-rust-500">&lt;</span>
             <span className="text-gray-100">RUPESH</span>
             <span className="text-neon-orange">/&gt;</span>
           </div>
-          <div className="flex flex-wrap items-center gap-4 md:gap-6 font-mono text-sm text-gray-400">
+          <div className="flex flex-wrap justify-end items-center gap-x-3 gap-y-2 sm:gap-x-4 md:gap-6 font-mono text-xs sm:text-sm text-gray-400 text-right ml-auto">
             <a href="#about" className="hover:text-neon-blue transition-colors">01. ABOUT</a>
             <a href="#skills" className="hover:text-neon-emerald transition-colors">02. SKILLS</a>
             <a href="#projects" className="hover:text-neon-orange transition-colors">03. WORK</a>
